@@ -13,6 +13,7 @@
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",    
     "deploy": "chmod +x bin/deploy.sh && sh bin/deploy.sh",
+    "setenv": "chmod +x bin/setenv.sh && sh bin/setenv.sh",
     "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

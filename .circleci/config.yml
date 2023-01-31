@@ -43,7 +43,7 @@ jobs:
       - run:
           name: API Build
           command: |
-            npm run api:install
+            npm run api:build
 
       - run:
           name: Deploy App

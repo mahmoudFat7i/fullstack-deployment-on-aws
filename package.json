@@ -2,7 +2,7 @@
     "scripts": {
         "frontend:install": "cd udagram/udagram-frontend && npm install -f",
         "frontend:build": "cd udagram/udagram-frontend && npm run build",
-        "frontend:lint ": "cd udagram/udagram-frontend && npm run lint",
+        "frontend:lint": "cd udagram/udagram-frontend && npm run lint",
         "frontend:test": "cd udagram/udagram-frontend && npm run test",
         "frontend:e2e": "cd udagram/udagram-frontend && npm run e2e",
         "frontend:deploy": "cd udagram/udagram-frontend && npm run deploy",

@@ -6,7 +6,7 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
 jobs:
-  build-deploy:
+  buildAndDeploy:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:16.13.2"
@@ -15,6 +15,8 @@ jobs:
       - node/install:
           node-version: '16.13'         
       - checkout
+      - eb/setup
+      - aws-cli/setup
       # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
@@ -29,6 +31,20 @@ jobs:
           name: Install API Dependencies
           command: |
            npm run api:install
+      # TODO: Build the backend API      
+      - run:
+          name: API Build
+          command: |
+            npm run api:build
+      - run:
+          name: Deploy Api
+          command: |
+           npm run api:deploy
+      # TODO: setup frontend          
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+           npm run frontend:install
       # TODO: Lint the frontend
       - run:
           name: Front-End Lint
@@ -39,19 +55,12 @@ jobs:
           name: Front-End Build
           command: |
             npm run frontend:build 
-      # TODO: Build the backend API      
       - run:
-          name: API Build
+          name: Deploy Frontend
           command: |
-            npm run api:build
-
-      - run:
-          name: Deploy App
-          # TODO: Install, build, deploy in both apps
-          command: |
-           npm run deploy
-            
+           npm run frontend:deploy
 workflows:
   udagram:
     jobs:
-      - build-deploy
+      - buildAndDeploy
+

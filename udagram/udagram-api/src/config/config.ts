@@ -15,6 +15,8 @@ export const config = {
   host: process.env.POSTGRES_HOST,
   aws_region: process.env.AWS_REGION,
   aws_profile: process.env.AWS_PROFILE,
+  ep_app: process.env.EB_APP,
+  ep_env: process.env.EB_ENV,
   aws_media_bucket: process.env.AWS_BUCKET,
   url: process.env.URL,
   jwt: {

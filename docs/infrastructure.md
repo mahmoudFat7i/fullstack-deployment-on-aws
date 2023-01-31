@@ -6,7 +6,7 @@
 #### RDS Postgres
 The application server uses AWS RDS Postgres as database for storing and retrieving information.
 
-Database URI: `postgresql://postgres:password@admin123.c5okwf63s1k9.us-east-1.rds.amazonaws.com/udagram`
+Database URI: `database-1.cllxlmvgg4w9.us-east-1.rds.amazonaws.com`
 
 #### Elastic Beanstalk
 The application server is deployed on AWS Elastic Beanstalk service. The application is build, archived and uploaded
